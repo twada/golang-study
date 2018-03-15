@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/twada/golang-study/ch02/lconv"
 	"github.com/twada/golang-study/ch02/tempconv"
 )
 
@@ -31,6 +32,10 @@ func conv(v string) {
 	}
 	f := tempconv.Fahrenheit(t)
 	c := tempconv.Celsius(t)
+	ft := lconv.Foot(t)
+	m := lconv.Meter(t)
 	fmt.Printf("%s = %s, %s = %s\n",
 		f, tempconv.FToC(f), c, tempconv.CToF(c))
+	fmt.Printf("%s = %s, %s = %s\n",
+		ft, lconv.FToM(ft), m, lconv.MToF(m))
 }
