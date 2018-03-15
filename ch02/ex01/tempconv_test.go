@@ -4,10 +4,9 @@ import (
 	"testing"
 )
 
-func TestConvCToF(t *testing.T) {
-	c := Celsius(100)
-	actual := CToF(c)
-	expected := Fahrenheit(212)
+func TestConvCToK(t *testing.T) {
+	actual := CToK(BoilingC).String()
+	expected := "373.15K"
     if actual != expected {
         t.Errorf("got %v\nwant %v", actual, expected)
     }
