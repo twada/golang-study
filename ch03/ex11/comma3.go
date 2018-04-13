@@ -9,8 +9,8 @@ func comma(s string) string {
 	if n <= 3 {
 		return s
 	}
-	if s[0] == '-' || s[0] == '+' {
-		return string(s[0]) + comma(s[1:])
+	if strings.HasPrefix(s, "-") || strings.HasPrefix(s, "+") {
+		return s[0:1] + comma(s[1:])
 	}
 	dot := strings.LastIndex(s, ".")
 	if dot != -1 {
