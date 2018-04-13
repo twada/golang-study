@@ -1,6 +1,7 @@
 package anagram
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -18,7 +19,7 @@ var table = []struct {
 
 func TestAnagram(t *testing.T) {
 	for _, tt := range table {
-		t.Run(tt.s1, func(t *testing.T) {
+		t.Run(fmt.Sprintf("isAnagram(%v,%v)=>%v", tt.s1, tt.s2, tt.want), func(t *testing.T) {
 			got := isAnagram(tt.s1, tt.s2)
 			if got != tt.want {
 				t.Errorf("got %v\nwant %v", got, tt.want)
