@@ -5,10 +5,6 @@ import (
 )
 
 func comma(s string) string {
-	n := len(s)
-	if n <= 3 {
-		return s
-	}
 	var sign, fraction string
 	if strings.HasPrefix(s, "-") || strings.HasPrefix(s, "+") {
 		sign = s[0:1]
