@@ -9,12 +9,23 @@ func comma(s string) string {
 	if n <= 3 {
 		return s
 	}
+	var sign, fraction string
 	if strings.HasPrefix(s, "-") || strings.HasPrefix(s, "+") {
-		return s[0:1] + comma(s[1:])
+		sign = s[0:1]
+		s = s[1:]
 	}
 	dot := strings.LastIndex(s, ".")
 	if dot != -1 {
-		return comma(s[:dot]) + s[dot:]
+		fraction = s[dot:]
+		s = s[:dot]
 	}
-	return comma(s[:n-3]) + "," + s[n-3:]
+	return sign + commaRecurse(s) + fraction
+}
+
+func commaRecurse(s string) string {
+	n := len(s)
+	if n <= 3 {
+		return s
+	}
+	return commaRecurse(s[:n-3]) + "," + s[n-3:]
 }
