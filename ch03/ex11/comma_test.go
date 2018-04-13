@@ -5,12 +5,13 @@ import (
 )
 
 var table = []struct {
-	in  string
+	in   string
 	want string
 }{
 	{"-12345.678", "-12,345.678"},
 	{"-123456.789", "-123,456.789"},
 }
+
 func TestComma(t *testing.T) {
 	for _, tt := range table {
 		t.Run(tt.in, func(t *testing.T) {

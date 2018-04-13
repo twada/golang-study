@@ -6,9 +6,9 @@ import (
 
 func comma(s string) string {
 	var buf bytes.Buffer
-	for i,j := len(s) - 1, 1; i >= 0; i, j = i-1, j+1 {
+	for i, j := len(s)-1, 1; i >= 0; i, j = i-1, j+1 {
 		buf.WriteByte(s[i])
-		if j % 3 == 0 && i != 0 {
+		if j%3 == 0 && i != 0 {
 			buf.WriteString(",")
 		}
 	}

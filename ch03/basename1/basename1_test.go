@@ -13,6 +13,7 @@ var table = []struct {
 	{"a/b/c.go", "c"},
 	{"a/b.c.go", "b.c"},
 }
+
 func TestBasename(t *testing.T) {
 	for _, tt := range table {
 		t.Run(tt.in, func(t *testing.T) {

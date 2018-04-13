@@ -9,10 +9,10 @@ func isAnagram(s1 string, s2 string) bool {
 }
 
 func sorted(s string) string {
-	runes := make([]rune, len(s)) 
+	runes := make([]rune, len(s))
 	copy(runes, []rune(s))
 	sort.Slice(runes, func(i, j int) bool {
-        return runes[i] < runes[j]
-    })
+		return runes[i] < runes[j]
+	})
 	return string(runes)
 }

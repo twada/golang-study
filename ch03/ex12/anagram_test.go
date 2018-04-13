@@ -12,6 +12,7 @@ var table = []struct {
 	{"canoe", "ocean", true},
 	{"canoo", "ocean", false},
 }
+
 func TestAnagram(t *testing.T) {
 	for _, tt := range table {
 		t.Run(tt.in1, func(t *testing.T) {

@@ -9,8 +9,9 @@ var table = []struct {
 	in  []int
 	out string
 }{
-	{[]int{1,2,3}, "[1, 2, 3]"},
+	{[]int{1, 2, 3}, "[1, 2, 3]"},
 }
+
 func TestComma(t *testing.T) {
 	for i, tt := range table {
 		t.Run(fmt.Sprintf("table#%d", i), func(t *testing.T) {
