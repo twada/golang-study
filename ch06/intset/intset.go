@@ -1,5 +1,10 @@
 package intset
 
+import (
+	"bytes"
+	"fmt"
+)
+
 type IntSet struct {
 	words []uint64
 }
@@ -28,4 +33,25 @@ func (s *IntSet) UnionWith(t *IntSet) {
 			s.words = append(s.words, tword)
 		}
 	}
+}
+
+// String は "{1 2 3}" の形式の文字列としてセットを返します
+func (s *IntSet) String() string {
+	var buf bytes.Buffer
+	buf.WriteByte('{')
+	for i, word := range s.words {
+		if word == 0 {
+			continue
+		}
+		for j := 0; j < 64; j++ {
+			if word & (1 << uint(j)) != 0 {
+				if buf.Len() > len("{") {
+					buf.WriteByte(' ')
+				}
+				fmt.Fprintf(&buf, "%d", 64 * i + j)
+			}
+		}
+	}
+	buf.WriteByte('}')
+	return buf.String()
 }
