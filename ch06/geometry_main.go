@@ -18,4 +18,19 @@ func main () {
 		{1, 1},
 	}
 	fmt.Println(perim.Distance())
+
+
+	r := &geometry.Point{1, 2}
+	r.ScaleBy(2)
+	fmt.Println(*r)
+
+	pptr := &p
+	pptr.ScaleBy(2)
+	fmt.Println(p)
+
+	(&p).ScaleBy(2)
+	fmt.Println(p)
+
+
+	geometry.Point{1,2}.ScaleBy(2)
 }
