@@ -70,3 +70,16 @@ func (s *IntSet) Len() int {
 	}
 	return len
 }
+
+func (s *IntSet) Remove(x int) bool {
+	word, bit := x/64, uint(x%64)
+	if word < len(s.words) {
+		if s.words[word] & (1<<bit) != 0 {
+			s.words[word] &= ^(1<<bit)
+			return true
+		}
+		return false
+	} else {
+		return false
+	}
+}
