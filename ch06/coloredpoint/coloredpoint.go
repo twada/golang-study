@@ -9,3 +9,8 @@ type ColoredPoint struct {
 	geometry.Point
 	Color color.RGBA
 }
+
+type ColoredPointP struct {
+	*geometry.Point
+	Color color.RGBA
+}
