@@ -55,3 +55,18 @@ func (s *IntSet) String() string {
 	buf.WriteByte('}')
 	return buf.String()
 }
+
+func (s *IntSet) Len() int {
+	len := 0
+	for _, word := range s.words {
+		if word == 0 {
+			continue
+		}
+		for j := 0; j < 64; j++ {
+			if word & (1 << uint(j)) != 0 {
+				len++
+			}
+		}
+	}
+	return len
+}

@@ -48,3 +48,22 @@ func TestUnionWith(t *testing.T) {
         t.Errorf("got %v\nwant %v", actual, expected)
     }
 }
+
+func TestLen(t *testing.T) {
+	var x, y IntSet
+	x.Add(1)
+	x.Add(144)
+	x.Add(9)
+	y.Add(9)
+	y.Add(42)
+	actual := x.Len()
+	expected := 3
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	actual = y.Len()
+	expected = 2
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+}
