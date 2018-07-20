@@ -155,3 +155,15 @@ func TestAddAll(t *testing.T) {
     }
 }
 
+func TestElems(t *testing.T) {
+	s := &IntSet{}
+	s.AddAll(3, 6, 9, 12)
+	var actual string
+	for _, x := range s.Elems() {
+		actual += fmt.Sprintf(" %d", x)
+	}
+	expected := " 3 6 9 12"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+}
