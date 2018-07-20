@@ -72,6 +72,9 @@ func (s *IntSet) Len() int {
 }
 
 func (s *IntSet) Remove(x int) bool {
+	if !s.Has(x) {
+		return false
+	}
 	word, bit := x/64, uint(x%64)
 	if word < len(s.words) {
 		if s.words[word] & (1<<bit) != 0 {
