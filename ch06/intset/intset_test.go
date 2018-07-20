@@ -114,3 +114,33 @@ func TestClear(t *testing.T) {
         t.Errorf("got %v\nwant %v", actual, expected)
     }
 }
+
+func TestCopy(t *testing.T) {
+	var orig IntSet
+	orig.Add(1)
+	orig.Add(144)
+	orig.Add(9)
+	actual := orig.String()
+	expected := "{1 9 144}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	cp := orig.Copy()
+	actual = cp.String()
+	expected = "{1 9 144}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	cp.Add(4)
+	cp.Add(6)
+	actual = cp.String()
+	expected = "{1 4 6 9 144}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	actual = orig.String()
+	expected = "{1 9 144}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+}

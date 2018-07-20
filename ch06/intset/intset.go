@@ -87,3 +87,11 @@ func (s *IntSet) Remove(x int) bool {
 func (s *IntSet) Clear() {
 	s.words = nil
 }
+
+func (s *IntSet) Copy() *IntSet {
+	dst := make([]uint64, len(s.words))
+	copy(dst, s.words)
+	new := &IntSet{}
+	new.words = dst
+	return new
+}
