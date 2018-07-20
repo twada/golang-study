@@ -38,4 +38,11 @@ func main () {
 	}
 
 
+	{
+		p := geometry.Point{1,2}
+		q := geometry.Point{4,6}
+
+		distanceFromP := p.Distance
+		fmt.Println(distanceFromP(q))
+	}
 }
