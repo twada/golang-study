@@ -78,7 +78,7 @@ func (s *IntSet) Remove(x int) bool {
 	word, bit := x/64, uint(x%64)
 	if word < len(s.words) {
 		if s.words[word] & (1<<bit) != 0 {
-			s.words[word] &= ^(1<<bit)
+			s.words[word] &^= 1<<bit
 			return true
 		}
 		return false
@@ -97,4 +97,10 @@ func (s *IntSet) Copy() *IntSet {
 	new := &IntSet{}
 	new.words = dst
 	return new
+}
+
+func (s *IntSet) AddAll(x ...int) {
+	for _, a := range x {
+		s.Add(a)
+	}
 }

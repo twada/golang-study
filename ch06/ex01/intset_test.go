@@ -144,3 +144,14 @@ func TestCopy(t *testing.T) {
         t.Errorf("got %v\nwant %v", actual, expected)
     }
 }
+
+func TestAddAll(t *testing.T) {
+	s := &IntSet{}
+	s.AddAll(3, 6, 9, 12)
+	actual := s.String()
+	expected := "{3 6 9 12}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+}
+
