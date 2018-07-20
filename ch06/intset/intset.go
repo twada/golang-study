@@ -83,3 +83,7 @@ func (s *IntSet) Remove(x int) bool {
 		return false
 	}
 }
+
+func (s *IntSet) Clear() {
+	s.words = nil
+}

@@ -1,6 +1,7 @@
 package intset
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -85,3 +86,31 @@ func TestRemove(t *testing.T) {
     }
 }
 
+func TestClear(t *testing.T) {
+	var x IntSet
+	x.Add(1)
+	x.Add(144)
+	x.Add(9)
+	orig := x.words
+	actual := fmt.Sprintf("%v", orig)
+	expected := "[514 0 65536]"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	x.Clear()
+	actual = x.String()
+	expected = "{}"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	actual = fmt.Sprintf("%v", x.words)
+	expected = "[]"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+	actual = fmt.Sprintf("%v", orig)
+	expected = "[514 0 65536]"
+    if actual != expected {
+        t.Errorf("got %v\nwant %v", actual, expected)
+    }
+}
