@@ -28,7 +28,7 @@ func TestIsPalindrome(t *testing.T) {
 	for i, test := range table {
 		t.Run(fmt.Sprintf("table#%d : IsPalindrome(%q)", i, test.input), func(t *testing.T) {
 			if got := IsPalindrome(test.input); got != test.want {
-				t.Errorf("IsPalindrome(%q) got [%v] want [%v]", test.input, got, test.want)
+				t.Errorf("IsPalindrome(%q) = %v", test.input, got)
 			}
 		})
 	}
