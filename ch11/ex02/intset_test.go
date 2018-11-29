@@ -1,9 +1,9 @@
 package test
 
 import (
+	"fmt"
 	"github.com/twada/golang-study/ch06/intset"
 	"github.com/twada/golang-study/ch11/intmapset"
-	"fmt"
 	"testing"
 )
 
@@ -67,8 +67,8 @@ func TestHas(t *testing.T) {
 	setByBitVector := &intset.IntSet{}
 	actual1 := setByMap.Has(input)
 	actual2 := setByBitVector.Has(input)
-    if actual1 != expected || actual2 != expected {
-        t.Errorf("got IntMapSet.Has(%v) = %v != IntSet.Has(%v) = %v, want %v", input, actual1, input, actual2, expected)
+	if actual1 != expected || actual2 != expected {
+		t.Errorf("got IntMapSet.Has(%v) = %v != IntSet.Has(%v) = %v, want %v", input, actual1, input, actual2, expected)
 	}
 }
 
@@ -81,7 +81,7 @@ func TestAddThenHas(t *testing.T) {
 	setByBitVector.Add(input)
 	actual1 := setByMap.Has(input)
 	actual2 := setByBitVector.Has(input)
-    if actual1 != expected || actual2 != expected {
-        t.Errorf("got IntMapSet.Has(%v) = %v != IntSet.Has(%v) = %v, want %v", input, actual1, input, actual2, expected)
+	if actual1 != expected || actual2 != expected {
+		t.Errorf("got IntMapSet.Has(%v) = %v != IntSet.Has(%v) = %v, want %v", input, actual1, input, actual2, expected)
 	}
 }

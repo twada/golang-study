@@ -1,20 +1,20 @@
 package test
 
 import (
-	"github.com/twada/golang-study/ch11/charcount"
 	"bytes"
 	"fmt"
+	"github.com/twada/golang-study/ch11/charcount"
 	"testing"
 )
 
 var table = []struct {
-	input string
+	input      string
 	wantCounts map[rune]int
 	wantUtflen []int
 }{
 	{
 		"golang",
-		map[rune]int {
+		map[rune]int{
 			'g': 2,
 			'o': 1,
 			'l': 1,
@@ -25,7 +25,7 @@ var table = []struct {
 	},
 	{
 		"すき家で鯖",
-		map[rune]int {
+		map[rune]int{
 			'す': 1,
 			'き': 1,
 			'家': 1,
@@ -36,7 +36,7 @@ var table = []struct {
 	},
 	{
 		"𠮷野家で𩸽",
-		map[rune]int {
+		map[rune]int{
 			'𠮷': 1,
 			'野': 1,
 			'家': 1,
@@ -58,7 +58,7 @@ func TestCharcount(t *testing.T) {
 			if gotlen, wantlen := len(gotCounts), len(test.wantCounts); gotlen != wantlen {
 				t.Errorf("len(gotCounts) == %d, want %d", gotlen, wantlen)
 			}
-			for k,v := range test.wantCounts {
+			for k, v := range test.wantCounts {
 				if got, ok := gotCounts[k]; ok {
 					if got != v {
 						t.Errorf("gotCounts[%q] == %d, want %d", k, got, v)

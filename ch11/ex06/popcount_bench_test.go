@@ -1,37 +1,37 @@
 package ex06
 
 import (
-	ch02 "github.com/twada/golang-study/ch02/popcount"
+	"fmt"
 	ex03 "github.com/twada/golang-study/ch02/ex03"
 	ex04 "github.com/twada/golang-study/ch02/ex04"
 	ex05 "github.com/twada/golang-study/ch02/ex05"
-	"fmt"
+	ch02 "github.com/twada/golang-study/ch02/popcount"
 	"math"
 	"testing"
 )
 
 var table = []struct {
 	name string
-	sut func(x uint64) int
+	sut  func(x uint64) int
 }{
-	{ "original", ch02.PopCount },
-	{ "ex03", ex03.PopCount },
-	{ "ex04", ex04.PopCount },
-	{ "ex05", ex05.PopCount },
+	{"original", ch02.PopCount},
+	{"ex03", ex03.PopCount},
+	{"ex04", ex04.PopCount},
+	{"ex05", ex05.PopCount},
 }
 
 var fixtures = []struct {
 	input uint64
-	want int
+	want  int
 }{
-	{ 0, 0 },
-	{ math.MaxUint8, 8 },
-	{ math.MaxUint8+1, 1 },
-	{ math.MaxUint16, 16 },
-	{ math.MaxUint16+1, 1 },
-	{ math.MaxUint32, 32 },
-	{ math.MaxUint32+1, 1 },
-	{ math.MaxUint64, 64 },
+	{0, 0},
+	{math.MaxUint8, 8},
+	{math.MaxUint8 + 1, 1},
+	{math.MaxUint16, 16},
+	{math.MaxUint16 + 1, 1},
+	{math.MaxUint32, 32},
+	{math.MaxUint32 + 1, 1},
+	{math.MaxUint64, 64},
 }
 
 func TestPopcount(t *testing.T) {

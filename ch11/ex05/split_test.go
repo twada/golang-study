@@ -7,8 +7,8 @@ import (
 )
 
 var table = []struct {
-	s string
-	sep string
+	s    string
+	sep  string
 	want []string
 }{
 	{
@@ -19,22 +19,22 @@ var table = []struct {
 	{
 		"",
 		":",
-		[]string{""},  // ??
+		[]string{""}, // ??
 	},
 	{
 		"a:b:c",
 		":",
-		[]string{"a","b","c"},
+		[]string{"a", "b", "c"},
 	},
 	{
 		"abc",
 		"",
-		[]string{"a","b","c"},
+		[]string{"a", "b", "c"},
 	},
 	{
 		"a b c",
 		"",
-		[]string{"a"," ", "b"," ","c"},
+		[]string{"a", " ", "b", " ", "c"},
 	},
 }
 

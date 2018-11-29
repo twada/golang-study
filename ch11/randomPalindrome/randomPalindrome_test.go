@@ -3,8 +3,8 @@ package randp
 import (
 	"github.com/twada/golang-study/ch11/word2"
 	"math/rand"
-	"time"
 	"testing"
+	"time"
 )
 
 func TestRandomPalindromes(t *testing.T) {

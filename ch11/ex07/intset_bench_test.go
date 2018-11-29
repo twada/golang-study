@@ -1,11 +1,11 @@
 package ex07
 
 import (
+	"fmt"
 	"github.com/twada/golang-study/ch06/intset"
 	"github.com/twada/golang-study/ch11/intmapset"
 	"math"
 	"math/rand"
-	"fmt"
 	"testing"
 	"time"
 )
@@ -18,11 +18,11 @@ type SetOfInt interface {
 }
 
 var table = []struct {
-	name string
+	name   string
 	create func() SetOfInt
 }{
-	{ "BitVector", func() SetOfInt { return &intset.IntSet{} } },
-	{ "map", func() SetOfInt { return intmapset.NewIntMapSet() } },
+	{"BitVector", func() SetOfInt { return &intset.IntSet{} }},
+	{"map", func() SetOfInt { return intmapset.NewIntMapSet() }},
 }
 
 func TestIntSet(t *testing.T) {

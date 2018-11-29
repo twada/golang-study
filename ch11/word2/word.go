@@ -11,7 +11,7 @@ func IsPalindrome(s string) bool {
 
 	}
 	for i := range letters {
-		if letters[i] != letters[len(letters) - 1 - i] {
+		if letters[i] != letters[len(letters)-1-i] {
 			return false
 		}
 	}

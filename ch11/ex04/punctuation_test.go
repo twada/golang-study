@@ -1,11 +1,11 @@
 package ex04
 
 import (
+	"fmt"
 	word "github.com/twada/golang-study/ch11/word2"
 	"math/rand"
-	"fmt"
-	"time"
 	"testing"
+	"time"
 	"unicode"
 )
 
@@ -89,7 +89,7 @@ func randPick(from []rune, rng *rand.Rand) (rune, []rune) {
 }
 
 func randBool(rng *rand.Rand) bool {
-	return rng.Intn(1000) % 2 == 0
+	return rng.Intn(1000)%2 == 0
 }
 
 func upperAlphas() []rune {
@@ -97,7 +97,7 @@ func upperAlphas() []rune {
 	for i := 0x0041; i < 0x005b; i++ {
 		runes = append(runes, rune(i))
 	}
-	return runes;
+	return runes
 }
 
 func punctuations() []rune {
@@ -111,5 +111,5 @@ func punctuations() []rune {
 	for i := 0x007b; i < 0x007f; i++ {
 		runes = append(runes, rune(i))
 	}
-	return runes;
+	return runes
 }

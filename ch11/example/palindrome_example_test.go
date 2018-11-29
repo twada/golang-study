@@ -1,8 +1,8 @@
 package ex
 
 import (
-	"github.com/twada/golang-study/ch11/word2"
 	"fmt"
+	"github.com/twada/golang-study/ch11/word2"
 )
 
 func ExampleIsPalindrome() {

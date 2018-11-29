@@ -10,7 +10,7 @@ import (
 
 func Count(input io.Reader) (counts map[rune]int, utflen []int, err error) {
 	counts = make(map[rune]int)
-	utflen = make([]int, utf8.UTFMax + 1)
+	utflen = make([]int, utf8.UTFMax+1)
 	invalid := 0
 
 	in := bufio.NewReader(input)
