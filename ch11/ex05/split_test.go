@@ -11,9 +11,31 @@ var table = []struct {
 	sep string
 	want []string
 }{
-	{"a:b:c", ":", []string{"a","b","c"}},
-	{"abc", "", []string{"a","b","c"}},
-	{"a b c", "", []string{"a"," ", "b"," ","c"}},
+	{
+		"",
+		"",
+		[]string{},
+	},
+	{
+		"",
+		":",
+		[]string{""},  // ??
+	},
+	{
+		"a:b:c",
+		":",
+		[]string{"a","b","c"},
+	},
+	{
+		"abc",
+		"",
+		[]string{"a","b","c"},
+	},
+	{
+		"a b c",
+		"",
+		[]string{"a"," ", "b"," ","c"},
+	},
 }
 
 func TestSplit(t *testing.T) {
