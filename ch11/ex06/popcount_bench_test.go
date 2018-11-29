@@ -26,8 +26,11 @@ var fixtures = []struct {
 }{
 	{ 0, 0 },
 	{ math.MaxUint8, 8 },
+	{ math.MaxUint8+1, 1 },
 	{ math.MaxUint16, 16 },
+	{ math.MaxUint16+1, 1 },
 	{ math.MaxUint32, 32 },
+	{ math.MaxUint32+1, 1 },
 	{ math.MaxUint64, 64 },
 }
 
