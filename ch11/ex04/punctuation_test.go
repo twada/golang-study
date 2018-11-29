@@ -1,7 +1,7 @@
 package ex04
 
 import (
-	"github.com/twada/golang-study/ch11/word2"
+	word "github.com/twada/golang-study/ch11/word2"
 	"math/rand"
 	"fmt"
 	"time"
@@ -15,8 +15,8 @@ func TestIsPalindromeTreatsPunctuations(t *testing.T) {
 	rng := rand.New(rand.NewSource(seed))
 	for i := 0; i < 1000; i++ {
 		p := randNonPalindrome(rng)
-		t.Run(fmt.Sprintf("table#%d : %s", i, p), func(t *testing.T) {
-			if word2.IsPalindrome(p) {
+		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=true", i, p), func(t *testing.T) {
+			if word.IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = true", p)
 			}
 		})
@@ -29,8 +29,8 @@ func TestNonPalindromeTreatsPunctuations(t *testing.T) {
 	rng := rand.New(rand.NewSource(seed))
 	for i := 0; i < 1000; i++ {
 		p := randPalindrome(rng)
-		t.Run(fmt.Sprintf("table#%d : %s", i, p), func(t *testing.T) {
-			if !word2.IsPalindrome(p) {
+		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=false", i, p), func(t *testing.T) {
+			if !word.IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = false", p)
 			}
 		})
@@ -67,19 +67,19 @@ func randNonPalindrome(rng *rand.Rand) string {
 	for i := 0; i < n; i++ {
 		var r rune
 		if randBool(rng) {
-			r, alphas = randPick(alphas, rng)
+			r, alphas = randRemove(alphas, rng)
 			if randBool(rng) {
 				r = unicode.ToLower(r)
 			}
 		} else {
-			r, puncs = randPick(puncs, rng)
+			r, puncs = randRemove(puncs, rng)
 		}
 		result[i] = r
 	}
 	return string(result)
 }
 
-func randPick(from []rune, rng *rand.Rand) (rune, []rune) {
+func randRemove(from []rune, rng *rand.Rand) (rune, []rune) {
 	n := rng.Intn(len(from))
 	r := from[n]
 	to := append(from[0:n], from[n+1:]...)
