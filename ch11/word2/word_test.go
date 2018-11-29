@@ -1,4 +1,4 @@
-package word
+package word2
 
 import (
 	"fmt"
