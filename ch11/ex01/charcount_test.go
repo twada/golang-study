@@ -49,18 +49,17 @@ var table = []struct {
 
 func TestCharcount(t *testing.T) {
 	for i, test := range table {
-		t.Run(fmt.Sprintf("table#%d : charcount.Count(%q)", i, test.input), func(t *testing.T) {
+		t.Run(fmt.Sprintf("table#%d/charcount.Count(%q)", i, test.input), func(t *testing.T) {
 			in := bytes.NewBufferString(test.input)
 			gotCounts, gotUtflen, err := charcount.Count(in)
 			if err != nil {
 				t.Fatalf("error in charcount.Count: %v", err)
 			}
-			if len(gotCounts) != len(test.wantCounts) {
-				t.Errorf("len(gotCounts) == %d, want %d", len(gotCounts), len(test.wantCounts))
+			if gotlen, wantlen := len(gotCounts), len(test.wantCounts); gotlen != wantlen {
+				t.Errorf("len(gotCounts) == %d, want %d", gotlen, wantlen)
 			}
 			for k,v := range test.wantCounts {
-				got, ok := gotCounts[k]
-				if ok {
+				if got, ok := gotCounts[k]; ok {
 					if got != v {
 						t.Errorf("gotCounts[%q] == %d, want %d", k, got, v)
 					}
@@ -68,12 +67,11 @@ func TestCharcount(t *testing.T) {
 					t.Errorf("gotCounts[%q] does not exist", k)
 				}
 			}
-			if len(gotUtflen) != len(test.wantUtflen) {
-				t.Errorf("len(gotUtflen) == %d, want %d", len(gotUtflen), len(test.wantUtflen))
+			if gotlen, wantlen := len(gotUtflen), len(test.wantUtflen); gotlen != wantlen {
+				t.Errorf("len(gotUtflen) == %d, want %d", gotlen, wantlen)
 			}
 			for i, v := range test.wantUtflen {
-				got := gotUtflen[i]
-				if got != v {
+				if got := gotUtflen[i]; got != v {
 					t.Errorf("gotUtflen[%d] == %d, want %d", i, got, v)
 				}
 			}
