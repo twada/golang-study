@@ -2,7 +2,7 @@ package randp
 
 import "math/rand"
 
-func randomPalindrome(rng *rand.Rand) string {
+func RandomPalindrome(rng *rand.Rand) string {
 	n := rng.Intn(25) // 24 までのランダムな長さ
 	runes := make([]rune, n)
 	for i := 0; i < (n+1)/2; i++ {

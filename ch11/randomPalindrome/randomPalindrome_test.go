@@ -14,7 +14,7 @@ func TestRandomPalindromes(t *testing.T) {
 	rng := rand.New(rand.NewSource(seed))
 
 	for i := 0; i < 1000; i++ {
-		p := randomPalindrome(rng)
+		p := RandomPalindrome(rng)
 		if !word2.IsPalindrome(p) {
 			t.Errorf("IsPalindrome(%q) = false", p)
 		}
