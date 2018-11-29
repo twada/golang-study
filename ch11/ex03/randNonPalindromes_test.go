@@ -15,7 +15,7 @@ func TestRandomNotPalindromes(t *testing.T) {
 	rng := rand.New(rand.NewSource(seed))
 	for i := 0; i < 1000; i++ {
 		p := randStr(rng)
-		t.Run(fmt.Sprintf("table#%d : %s", i, p), func(t *testing.T) {
+		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=true", i, p), func(t *testing.T) {
 			if word2.IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = true", p)
 			}
@@ -41,7 +41,9 @@ func randStr(rng *rand.Rand) string {
 func randPick(from []rune, rng *rand.Rand) (rune, []rune) {
 	n := rng.Intn(len(from))
 	r := from[n]
-	to := append(from[0:n], from[n+1:]...)
+	to := make([]rune, len(from))
+	copy(to, from)
+	to = append(to[0:n], to[n+1:]...)
 	return r, to
 }
 

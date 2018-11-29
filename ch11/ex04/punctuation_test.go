@@ -45,12 +45,12 @@ func randPalindrome(rng *rand.Rand) string {
 	for i := 0; i < (n+1)/2; i++ {
 		var r rune
 		if randBool(rng) {
-			r = randChoose(alphas, rng)
+			r, _ = randPick(alphas, rng)
 			if randBool(rng) {
 				r = unicode.ToLower(r)
 			}
 		} else {
-			r = randChoose(puncs, rng)
+			r, _ = randPick(puncs, rng)
 		}
 		runes[i] = r
 		runes[n-1-i] = r
@@ -67,28 +67,25 @@ func randNonPalindrome(rng *rand.Rand) string {
 	for i := 0; i < n; i++ {
 		var r rune
 		if randBool(rng) {
-			r, alphas = randRemove(alphas, rng)
+			r, alphas = randPick(alphas, rng)
 			if randBool(rng) {
 				r = unicode.ToLower(r)
 			}
 		} else {
-			r, puncs = randRemove(puncs, rng)
+			r, puncs = randPick(puncs, rng)
 		}
 		result[i] = r
 	}
 	return string(result)
 }
 
-func randRemove(from []rune, rng *rand.Rand) (rune, []rune) {
+func randPick(from []rune, rng *rand.Rand) (rune, []rune) {
 	n := rng.Intn(len(from))
 	r := from[n]
-	to := append(from[0:n], from[n+1:]...)
+	to := make([]rune, len(from))
+	copy(to, from)
+	to = append(to[0:n], to[n+1:]...)
 	return r, to
-}
-
-func randChoose(from []rune, rng *rand.Rand) rune {
-	n := rng.Intn(len(from))
-	return from[n]
 }
 
 func randBool(rng *rand.Rand) bool {
