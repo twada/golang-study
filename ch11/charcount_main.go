@@ -2,8 +2,8 @@
 package main
 
 import (
-	"github.com/twada/golang-study/ch11/charcount"
 	"fmt"
+	"github.com/twada/golang-study/ch11/charcount"
 	"os"
 )
 
