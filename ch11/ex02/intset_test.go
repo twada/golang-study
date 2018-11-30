@@ -1,9 +1,7 @@
-package test
+package ex02
 
 import (
 	"fmt"
-	"github.com/twada/golang-study/ch06/intset"
-	"github.com/twada/golang-study/ch11/intmapset"
 	"testing"
 )
 
@@ -47,8 +45,8 @@ var table = []struct {
 func TestIntSetImpl(t *testing.T) {
 	for i, test := range table {
 		t.Run(fmt.Sprintf("table#%d : %s", i, test.name), func(t *testing.T) {
-			setByMap := intmapset.NewIntMapSet()
-			setByBitVector := &intset.IntSet{}
+			setByMap := NewIntMapSet()
+			setByBitVector := &IntSet{}
 			got1 := test.body(setByMap)
 			got2 := test.body(setByBitVector)
 			if got1 != test.want || got2 != test.want {
@@ -63,8 +61,8 @@ func TestIntSetImpl(t *testing.T) {
 func TestHas(t *testing.T) {
 	input := 3
 	expected := false
-	setByMap := intmapset.NewIntMapSet()
-	setByBitVector := &intset.IntSet{}
+	setByMap := NewIntMapSet()
+	setByBitVector := &IntSet{}
 	actual1 := setByMap.Has(input)
 	actual2 := setByBitVector.Has(input)
 	if actual1 != expected || actual2 != expected {
@@ -75,8 +73,8 @@ func TestHas(t *testing.T) {
 func TestAddThenHas(t *testing.T) {
 	input := 3
 	expected := true
-	setByMap := intmapset.NewIntMapSet()
-	setByBitVector := &intset.IntSet{}
+	setByMap := NewIntMapSet()
+	setByBitVector := &IntSet{}
 	setByMap.Add(input)
 	setByBitVector.Add(input)
 	actual1 := setByMap.Has(input)

@@ -2,10 +2,6 @@ package ex06
 
 import (
 	"fmt"
-	ex03 "github.com/twada/golang-study/ch02/ex03"
-	ex04 "github.com/twada/golang-study/ch02/ex04"
-	ex05 "github.com/twada/golang-study/ch02/ex05"
-	ch02 "github.com/twada/golang-study/ch02/popcount"
 	"math"
 	"testing"
 )
@@ -14,10 +10,10 @@ var table = []struct {
 	name string
 	sut  func(x uint64) int
 }{
-	{"original", ch02.PopCount},
-	{"ex03", ex03.PopCount},
-	{"ex04", ex04.PopCount},
-	{"ex05", ex05.PopCount},
+	{"original", PopCount},
+	{"ex03", PopCountEx03},
+	{"ex04", PopCountEx04},
+	{"ex05", PopCountEx05},
 }
 
 var fixtures = []struct {

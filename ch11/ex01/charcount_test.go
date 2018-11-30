@@ -1,9 +1,8 @@
-package test
+package ex01
 
 import (
 	"bytes"
 	"fmt"
-	"github.com/twada/golang-study/ch11/charcount"
 	"testing"
 )
 
@@ -49,11 +48,11 @@ var table = []struct {
 
 func TestCharcount(t *testing.T) {
 	for i, test := range table {
-		t.Run(fmt.Sprintf("table#%d/charcount.Count(%q)", i, test.input), func(t *testing.T) {
+		t.Run(fmt.Sprintf("table#%d/Count(%q)", i, test.input), func(t *testing.T) {
 			in := bytes.NewBufferString(test.input)
-			gotCounts, gotUtflen, err := charcount.Count(in)
+			gotCounts, gotUtflen, err := Count(in)
 			if err != nil {
-				t.Fatalf("error in charcount.Count: %v", err)
+				t.Fatalf("error in Count: %v", err)
 			}
 			if gotlen, wantlen := len(gotCounts), len(test.wantCounts); gotlen != wantlen {
 				t.Errorf("len(gotCounts) == %d, want %d", gotlen, wantlen)

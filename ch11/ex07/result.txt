@@ -1,0 +1,11 @@
+$ go test -bench=.
+goos: darwin
+goarch: amd64
+pkg: github.com/twada/golang-study/ch11/ex07
+BenchmarkIntSet/BitVector/Add(36584157275)-4         	       1	27661683568 ns/op
+BenchmarkIntSet/map/Add(36584157275)-4               	100000000	        15.2 ns/op
+BenchmarkIntSet/BitVector/Add(67725685131)-4         	       1	60419396388 ns/op
+BenchmarkIntSet/map/Add(67725685131)-4               	100000000	        14.5 ns/op
+PASS
+ok  	github.com/twada/golang-study/ch11/ex07	96.870s
+$ 

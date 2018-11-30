@@ -2,7 +2,6 @@ package ex04
 
 import (
 	"fmt"
-	word "github.com/twada/golang-study/ch11/word2"
 	"math/rand"
 	"testing"
 	"time"
@@ -16,7 +15,7 @@ func TestIsPalindromeTreatsPunctuations(t *testing.T) {
 	for i := 0; i < 1000; i++ {
 		p := randNonPalindrome(rng)
 		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=true", i, p), func(t *testing.T) {
-			if word.IsPalindrome(p) {
+			if IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = true", p)
 			}
 		})
@@ -30,7 +29,7 @@ func TestNonPalindromeTreatsPunctuations(t *testing.T) {
 	for i := 0; i < 1000; i++ {
 		p := randPalindrome(rng)
 		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=false", i, p), func(t *testing.T) {
-			if !word.IsPalindrome(p) {
+			if !IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = false", p)
 			}
 		})

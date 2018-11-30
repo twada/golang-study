@@ -2,8 +2,6 @@ package ex07
 
 import (
 	"fmt"
-	"github.com/twada/golang-study/ch06/intset"
-	"github.com/twada/golang-study/ch11/intmapset"
 	"math"
 	"math/rand"
 	"testing"
@@ -21,8 +19,8 @@ var table = []struct {
 	name   string
 	create func() SetOfInt
 }{
-	{"BitVector", func() SetOfInt { return &intset.IntSet{} }},
-	{"map", func() SetOfInt { return intmapset.NewIntMapSet() }},
+	{"BitVector", func() SetOfInt { return &IntSet{} }},
+	{"map", func() SetOfInt { return NewIntMapSet() }},
 }
 
 func TestIntSet(t *testing.T) {

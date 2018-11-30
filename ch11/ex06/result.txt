@@ -1,0 +1,39 @@
+$ go test -bench=.
+goos: darwin
+goarch: amd64
+pkg: github.com/twada/golang-study/ch11/ex06
+BenchmarkPopcount/original/PopCount(0)-4         	200000000	         6.23 ns/op
+BenchmarkPopcount/original/PopCount(255)-4       	200000000	         6.13 ns/op
+BenchmarkPopcount/original/PopCount(256)-4       	200000000	         6.07 ns/op
+BenchmarkPopcount/original/PopCount(65535)-4     	200000000	         6.09 ns/op
+BenchmarkPopcount/original/PopCount(65536)-4     	200000000	         6.27 ns/op
+BenchmarkPopcount/original/PopCount(4294967295)-4         	200000000	         6.16 ns/op
+BenchmarkPopcount/original/PopCount(4294967296)-4         	200000000	         6.86 ns/op
+BenchmarkPopcount/original/PopCount(18446744073709551615)-4         	200000000	         6.13 ns/op
+BenchmarkPopcount/ex03/PopCount(0)-4                                	100000000	        22.3 ns/op
+BenchmarkPopcount/ex03/PopCount(255)-4                              	100000000	        22.5 ns/op
+BenchmarkPopcount/ex03/PopCount(256)-4                              	100000000	        22.7 ns/op
+BenchmarkPopcount/ex03/PopCount(65535)-4                            	100000000	        28.1 ns/op
+BenchmarkPopcount/ex03/PopCount(65536)-4                            	100000000	        22.8 ns/op
+BenchmarkPopcount/ex03/PopCount(4294967295)-4                       	100000000	        22.3 ns/op
+BenchmarkPopcount/ex03/PopCount(4294967296)-4                       	100000000	        23.3 ns/op
+BenchmarkPopcount/ex03/PopCount(18446744073709551615)-4             	100000000	        22.6 ns/op
+BenchmarkPopcount/ex04/PopCount(0)-4                                	20000000	        94.7 ns/op
+BenchmarkPopcount/ex04/PopCount(255)-4                              	20000000	        99.8 ns/op
+BenchmarkPopcount/ex04/PopCount(256)-4                              	20000000	        94.5 ns/op
+BenchmarkPopcount/ex04/PopCount(65535)-4                            	20000000	        93.1 ns/op
+BenchmarkPopcount/ex04/PopCount(65536)-4                            	20000000	        92.5 ns/op
+BenchmarkPopcount/ex04/PopCount(4294967295)-4                       	20000000	        93.4 ns/op
+BenchmarkPopcount/ex04/PopCount(4294967296)-4                       	20000000	        97.2 ns/op
+BenchmarkPopcount/ex04/PopCount(18446744073709551615)-4             	20000000	        94.6 ns/op
+BenchmarkPopcount/ex05/PopCount(0)-4                                	1000000000	         2.77 ns/op
+BenchmarkPopcount/ex05/PopCount(255)-4                              	200000000	         8.68 ns/op
+BenchmarkPopcount/ex05/PopCount(256)-4                              	500000000	         3.66 ns/op
+BenchmarkPopcount/ex05/PopCount(65535)-4                            	100000000	        14.6 ns/op
+BenchmarkPopcount/ex05/PopCount(65536)-4                            	500000000	         3.59 ns/op
+BenchmarkPopcount/ex05/PopCount(4294967295)-4                       	100000000	        25.3 ns/op
+BenchmarkPopcount/ex05/PopCount(4294967296)-4                       	500000000	         3.61 ns/op
+BenchmarkPopcount/ex05/PopCount(18446744073709551615)-4             	30000000	        55.2 ns/op
+PASS
+ok  	github.com/twada/golang-study/ch11/ex06	67.775s
+$ 

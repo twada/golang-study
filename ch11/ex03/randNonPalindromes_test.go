@@ -2,7 +2,6 @@ package ex03
 
 import (
 	"fmt"
-	"github.com/twada/golang-study/ch11/word2"
 	"math/rand"
 	"testing"
 	"time"
@@ -16,7 +15,7 @@ func TestRandomNotPalindromes(t *testing.T) {
 	for i := 0; i < 1000; i++ {
 		p := randStr(rng)
 		t.Run(fmt.Sprintf("table#%d/IsPalindrome(%q)=true", i, p), func(t *testing.T) {
-			if word2.IsPalindrome(p) {
+			if IsPalindrome(p) {
 				t.Errorf("IsPalindrome(%q) = true", p)
 			}
 		})
